@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindScape VR - Virtual Reality Therapy Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;550;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Welcome Screen -->
+        <div id="welcomeScreen" class="screen active">
+            <!-- Hero Background with Floating Shapes -->
+            <div class="hero-background">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                    <div class="shape shape-5"></div>
+                </div>
+            </div>
+            
+            <div class="welcome-hero">
+                <div class="hero-content">
+                    <!-- Hero Badge -->
+                    <div class="hero-badge">
+                        <span>🚀 Revolutionary VR Therapy</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="title-gradient">Mind</span><span class="title-accent">Scape</span> VR
+                    </h1>
+                    <p class="hero-subtitle">
+                        Transform your mental health journey with <span class="subtitle-highlight">immersive virtual reality therapy</span> powered by cutting-edge technology and expert clinical guidance.
+                    </p>
+
+                    <div class="login-options">
+                        <button id="patientLogin" class="btn btn--primary btn--enhanced">
+                            <div class="btn-icon">🧑‍⚕️</div>
+                            <div class="btn-content">
+                                <span>Patient Access</span>
+                                <small>Start your therapy journey</small>
+                            </div>
+                            <div class="btn-arrow">→</div>
+                        </button>
+                        <button id="therapistLogin" class="btn btn--secondary btn--enhanced">
+                            <div class="btn-icon">👨‍⚕️</div>
+                            <div class="btn-content">
+                                <span>Therapist Portal</span>
+                                <small>Monitor patient progress</small>
+                            </div>
+                            <div class="btn-arrow">→</div>
+                        </button>
+                    </div>
+
+                    <div class="features-preview">
+                        <div class="feature-card">
+                            <div class="feature-icon">🏔️</div>
+                            <h3>Immersive Environments</h3>
+                            <p>Experience therapeutic environments designed for anxiety, PTSD, phobias, and mood enhancement in photorealistic VR</p>
+                            <div class="feature-stats">Clinical Grade</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Controlled Exposure</h3>
+                            <p>Gradual exposure therapy in completely safe, controlled virtual environments with emergency protocols</p>
+                            <div class="feature-stats">100% Safe</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Real-time Monitoring</h3>
+                            <p>Advanced physiological feedback and biometric monitoring with instant adaptation to your comfort level</p>
+                            <div class="feature-stats">AI-Powered</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧠</div>
+                            <h3>Adaptive Learning</h3>
+                            <p>Intelligent algorithms adapt difficulty and scenarios based on your progress and therapeutic goals</p>
+                            <div class="feature-stats">Personalized</div>
+                        </div>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <div class="trust-number">98%</div>
+                            <div class="trust-label">Success Rate</div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-number">10K+</div>
+                            <div class="trust-label">Patients Helped</div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-number">50+</div>
+                            <div class="trust-label">Clinical Partners</div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-number">24/7</div>
+                            <div class="trust-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assessment Screen -->
+        <div id="assessmentScreen" class="screen">
+            <div class="assessment-header">
+                <h2>Personal Assessment</h2>
+                <p>Help us understand your needs to create a personalized therapy program</p>
+                <div class="progress-bar">
+                    <div id="assessmentProgress" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="assessment-content">
+                <div id="questionContainer" class="question-container">
+                    <!-- Questions will be dynamically inserted here -->
+                </div>
+
+                <div class="assessment-navigation">
+                    <button id="prevQuestion" class="btn btn--outline" disabled>Previous</button>
+                    <button id="nextQuestion" class="btn btn--primary" disabled>Next</button>
+                    <button id="completeAssessment" class="btn btn--primary hidden">Complete Assessment</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="dashboardScreen" class="screen">
+            <header class="app-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <h1>MindScape VR</h1>
+                        <div id="userInfo" class="user-info">Welcome back, Patient</div>
+                    </div>
+                    <div class="header-right">
+                        <button id="settingsBtn" class="btn btn--outline btn--sm">Settings</button>
+                        <button id="logoutBtn" class="btn btn--outline btn--sm">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="dashboard-main">
+                <div class="container">
+                    <!-- Recommended Therapy -->
+                    <section class="recommended-therapy">
+                        <h2>✨ Recommended for You</h2>
+                        <div id="recommendedSession" class="therapy-recommendation">
+                            <!-- Recommended therapy will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- Available Sessions -->
+                    <section class="therapy-sessions">
+                        <h2>🎯 Available Therapy Sessions</h2>
+                        <div id="sessionsGrid" class="sessions-grid">
+                            <!-- Therapy cards will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- Progress Section -->
+                    <section class="progress-section">
+                        <div class="progress-cards">
+                            <div class="progress-card card">
+                                <div class="card__body">
+                                    <h3>🎯 Sessions Completed</h3>
+                                    <div class="progress-number">0</div>
+                                    <div class="progress-chart"></div>
+                                </div>
+                            </div>
+
+                            <div class="progress-card card">
+                                <div class="card__body">
+                                    <h3>💚 Anxiety Levels</h3>
+                                    <div class="anxiety-indicator">
+                                        <div class="anxiety-level">
+                                            <span class="level-value">65</span>
+                                            <span class="level-label">Moderate</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress-card card">
+                                <div class="card__body">
+                                    <h3>🏆 Achievements</h3>
+                                    <div class="achievements">
+                                        <div class="achievement-badge">🏆 First Session</div>
+                                        <div class="achievement-badge">⭐ Progress Streak</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <!-- VR Session Screen -->
+        <div id="vrSessionScreen" class="screen">
+            <div class="vr-session-container">
+                <button id="emergencyStop" class="emergency-stop">STOP</button>
+
+                <div class="vr-environment" id="vrEnvironment">
+                    <!-- Default VR Environment (will be replaced for heights therapy) -->
+                    <div id="defaultVrEnvironment" style="
+                        width: 100%; 
+                        height: 100%; 
+                        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+                        display: flex; 
+                        align-items: center; 
+                        justify-content: center; 
+                        font-size: 2rem; 
+                        color: white;
+                        text-align: center;
+                    ">
+                        <div>
+                            <h2>🥽 VR Environment Active</h2>
+                            <p>Therapy session in progress...</p>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Mountain VR Environment (for heights therapy only) -->
+                    <div id="mountainVrEnvironment" class="mountain-vr-environment hidden">
+                        <!-- Sky and Clouds -->
+                        <div class="mountain-sky">
+                            <div class="cloud cloud-1"></div>
+                            <div class="cloud cloud-2"></div>
+                        </div>
+
+                        <!-- Mountain Layers -->
+                        <div class="mountain-layer mountain-back"></div>
+                        <div class="mountain-layer mountain-mid"></div>
+                        <div class="mountain-layer mountain-front">
+                            <!-- Snow Caps -->
+                            <div class="snow-cap snow-cap-1"></div>
+                            <div class="snow-cap snow-cap-2"></div>
+                            <div class="snow-cap snow-cap-3"></div>
+                        </div>
+
+                        <!-- Interactive Elements -->
+                        <div class="cable-line"></div>
+                        <div class="cable-car mountain-interactive" title="Click to ride cable car"></div>
+                        <div class="mountain-lodge mountain-interactive" title="Click to enter lodge"></div>
+
+                        <!-- Wildlife -->
+                        <div class="eagle mountain-wildlife" title="Click to observe eagle">🦅</div>
+
+                        <!-- Weather Effects Overlay -->
+                        <div id="weatherEffect" class="weather-effect"></div>
+
+                        <!-- Height Level Indicator -->
+                        <div class="height-indicator">
+                            <div class="height-level active" data-level="1">
+                                <div class="height-level-number">1</div>
+                                <div class="height-level-info">
+                                    <div class="height-level-name">Base Camp</div>
+                                    <div class="height-level-elevation">1,200m</div>
+                                </div>
+                            </div>
+                            <div class="height-level" data-level="2">
+                                <div class="height-level-number">2</div>
+                                <div class="height-level-info">
+                                    <div class="height-level-name">Lower Trail</div>
+                                    <div class="height-level-elevation">1,800m</div>
+                                </div>
+                            </div>
+                            <div class="height-level" data-level="3">
+                                <div class="height-level-number">3</div>
+                                <div class="height-level-info">
+                                    <div class="height-level-name">Mid Platform</div>
+                                    <div class="height-level-elevation">2,400m</div>
+                                </div>
+                            </div>
+                            <div class="height-level" data-level="4">
+                                <div class="height-level-number">4</div>
+                                <div class="height-level-info">
+                                    <div class="height-level-name">High Ridge</div>
+                                    <div class="height-level-elevation">3,000m</div>
+                                </div>
+                            </div>
+                            <div class="height-level" data-level="5">
+                                <div class="height-level-number">5</div>
+                                <div class="height-level-info">
+                                    <div class="height-level-name">Summit Peak</div>
+                                    <div class="height-level-elevation">3,600m</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VR Controls Panel -->
+                        <div class="vr-controls-panel">
+                            <div class="control-group">
+                                <span class="control-label">Weather</span>
+                                <div class="control-buttons">
+                                    <button class="control-btn active" data-weather="clear">☀️ Clear</button>
+                                    <button class="control-btn" data-weather="cloudy">☁️ Cloudy</button>
+                                    <button class="control-btn" data-weather="misty">🌫️ Misty</button>
+                                    <button class="control-btn" data-weather="snowy">❄️ Snow</button>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <span class="control-label">Time of Day</span>
+                                <div class="control-buttons">
+                                    <button class="control-btn" data-time="sunrise">🌅 Sunrise</button>
+                                    <button class="control-btn active" data-time="day">☀️ Day</button>
+                                    <button class="control-btn" data-time="sunset">🌇 Sunset</button>
+                                    <button class="control-btn" data-time="night">🌙 Night</button>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <span class="control-label">Safety Mode</span>
+                                <div class="control-buttons">
+                                    <button class="control-btn active" data-safety="on">🛡️ On</button>
+                                    <button class="control-btn" data-safety="off">⚡ Off</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="biometric-overlay">
+                    <div class="biometric-panel">
+                        <h3>📊 Biometric Data</h3>
+                        <div class="biometric-data">
+                            <div class="metric">
+                                <span class="metric-label">❤️ Heart Rate</span>
+                                <span id="heartRate" class="metric-value">72 BPM</span>
+                                <div class="metric-indicator"></div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">😌 Stress Level</span>
+                                <span id="stressLevel" class="metric-value">Low</span>
+                                <div class="metric-indicator"></div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">⚡ Skin Conductance</span>
+                                <span id="skinConductance" class="metric-value">5 μS</span>
+                                <div class="metric-indicator"></div>
+                            </div>
+                        </div>
+                        <div class="biometric-chart"></div>
+                    </div>
+                </div>
+
+                <div class="session-controls">
+                    <button id="pauseSession" class="btn btn--secondary">⏸️ Pause</button>
+                    <button id="breathingExercise" class="btn btn--primary">🫁 Breathing Exercise</button>
+                    <button id="endSession" class="btn btn--outline">🔚 End Session</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breathing Exercise Modal -->
+    <div id="exerciseModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🫁 Breathing Exercise</h3>
+                <button id="closeExercise" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="exercise-content">
+                    <div class="breathing-guide">
+                        <div id="breathingCircle" class="breathing-circle">
+                            <div id="breathingText" class="breathing-text">Breathe</div>
+                        </div>
+                        <div id="breathingInstructions" class="breathing-instructions">
+                            Click "Start" to begin the breathing exercise
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="startExercise" class="btn btn--primary">🚀 Start Exercise</button>
+                    <button id="skipExercise" class="btn btn--secondary">⏭️ Skip</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Session Complete Modal -->
+    <div id="sessionCompleteModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🎉 Session Complete</h3>
+            </div>
+            <div class="modal-body">
+                <div class="session-summary">
+                    <h4>Great job! You've completed your therapy session.</h4>
+                    <div class="summary-stats">
+                        <div class="stat">
+                            <span class="stat-label">⏱️ Duration</span>
+                            <span class="stat-value">15:30</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">❤️ Avg Heart Rate</span>
+                            <span class="stat-value">78 BPM</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">📉 Stress Reduction</span>
+                            <span class="stat-value">-25%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">📈 Progress</span>
+                            <span class="stat-value">+12%</span>
+                        </div>
+                    </div>
+                    <div class="recommendations">
+                        <h4>💡 Recommendations for next session:</h4>
+                        <ul>
+                            <li>Try increasing the difficulty level</li>
+                            <li>Consider longer exposure duration</li>
+                            <li>Practice breathing exercises daily</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="backToDashboard" class="btn btn--primary">🏠 Back to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>⚙️ Settings</h3>
+                <button id="closeSettings" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h4>🔔 Notifications</h4>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <input type="checkbox" checked> Session reminders
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <input type="checkbox"> Progress updates
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h4>🎨 Preferences</h4>
+                    <div class="form-group">
+                        <label class="form-label">Theme</label>
+                        <select class="form-control">
+                            <option>Auto</option>
+                            <option>Light</option>
+                            <option>Dark</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Session Duration</label>
+                        <select class="form-control">
+                            <option>15 minutes</option>
+                            <option selected>30 minutes</option>
+                            <option>45 minutes</option>
+                            <option>60 minutes</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn--primary">💾 Save Settings</button>
+                    <button class="btn btn--secondary">❌ Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+        <p>🚀 Loading VR Environment...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
